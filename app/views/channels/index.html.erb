@@ -1,0 +1,19 @@
+<h1>Popular Livestream Channels</h1>
+<% @channels.each_with_index do |channel, index| %>
+<% if index % 4 == 0 %><div class="row"><% end %>
+  <div class="channel">
+    <% if channel.live? %>
+      <img id="thumbnail_<%= channel.id %>" class="thumbnail" src="http://thumbnail.api.livestream.com/thumbnail?name=<%= channel.short_name %>" alt="" />
+      <script type="text/javascript">
+        setInterval(function () { updateThumb('<%= channel.id %>', '<%= channel.short_name %>') }, 3000);
+      </script>
+    <% elsif !channel.logo_url.blank? %>
+      <img style="width: 100px; height: 100px" src="<%= channel.logo_url %>" alt="" />
+    <% end %>
+    <p><a href="<%= channel.url %>"><%= channel.full_name %></a></p>
+  </div>
+  <% if index % 4 == 3 || index == @channels.size %></div><% end %>
+<% end %>
+<hr/>
+<p><%= link_to 'Previous', paged_channels_path(:page => @page.pred) if @page > 1 %>
+<%= link_to 'Next', paged_channels_path(:page => @page.next), :class => 'right' %></p>

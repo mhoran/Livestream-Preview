@@ -11,9 +11,13 @@ class Channel
                      :resultsPerPage => results_per_page,
                      :mostViewedChannelType => 'NOW'})
 
-    return [] unless response.success?
+    if response.success?
+      channels = response.parsed_response['response']['channels']['channel']
+    else
+      channels = []
+    end
 
-    response.parsed_response['response']['channels']['channel'].map do |channel|
+    channels.map do |channel|
       new(:id => channel['id'],
           :short_name => channel['shortName'],
           :full_name => channel['fullName'],

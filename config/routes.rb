@@ -1,5 +1,6 @@
 LivestreamPreview::Application.routes.draw do
-  root :to => 'channels#show'
+  root :to => 'channels#index'
 
-  resource :channels
+  resources :channels, :only => :index
+  match 'channels/pages/:page', :to => 'channels#index', :as => 'paged_channels'
 end
