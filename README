@@ -1,0 +1,5 @@
+== Welcome to Livestream Preview
+
+This Web application shows how to use the Livestream API to list the most popular Livestream channels, paginated in a grid view with thumbnails of the actual channel content.
+
+It uses HTTParty to call out to the Livestream API over HTTP, and the Live Thumbnail API to pull content from Livestream.
