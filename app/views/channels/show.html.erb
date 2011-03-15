@@ -8,7 +8,7 @@
         <script type="text/javascript">
           setInterval(function () { updateThumb('<%= channel.id %>', '<%= channel.short_name %>') }, 3000);
         </script>
-      <% else %>
+      <% elsif !channel.logo_url.blank? %>
         <img src="<%= channel.logo_url %>" alt="" />
       <% end %>
       <p><a href="<%= channel.url %>"><%= channel.full_name %></a></p>
