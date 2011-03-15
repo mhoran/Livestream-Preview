@@ -4,7 +4,7 @@ class Channel
   base_uri 'channelguide.api.livestream.com'
   default_params :affiliateId => 2065, :applicationKey => '40dea23023e15c6730a6db8a069c60b0b4dbb646'
   
-  def self.most_popular_channels(page_number = 1, results_per_page = 9)
+  def self.most_popular_channels(page_number = 1, results_per_page = 8)
     response = get('/programguide',
                    :query => {:method => 'getMostViewedChannels',
                      :pageNumber => page_number,

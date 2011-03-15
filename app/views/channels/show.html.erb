@@ -1,20 +1,19 @@
-<div id="container">
 <h1>Popular Livestream Channels</h1>
 <ul>
-<% @channels.each do |channel| %>
-  <li>
-  <% if channel.live? %>
-    <img id="thumbnail_<%= channel.id %>" class="thumbnail" src="http://thumbnail.api.livestream.com/thumbnail?name=<%= channel.short_name %>" alt="" />
- 
-    <script type="text/javascript">
-      setInterval(function () { updateThumb('<%= channel.id %>', '<%= channel.short_name %>') }, 3000);
-    </script>
-  <% else %>
-    <img src="<%= channel.logo_url %>" alt="" />
+  <% @channels.each do |channel| %>
+    <div class="channel">
+      <% if channel.live? %>
+        <img id="thumbnail_<%= channel.id %>" class="thumbnail" src="http://thumbnail.api.livestream.com/thumbnail?name=<%= channel.short_name %>" alt="" />
+
+        <script type="text/javascript">
+          setInterval(function () { updateThumb('<%= channel.id %>', '<%= channel.short_name %>') }, 3000);
+        </script>
+      <% else %>
+        <img src="<%= channel.logo_url %>" alt="" />
+      <% end %>
+      <p><a href="<%= channel.url %>"><%= channel.full_name %></a></p>
+    </div>
   <% end %>
-  <br/>
-  <a href="<%= channel.url %>"><%= channel.full_name %></a></li>
-<% end %>
 </ul>
 <hr/>
 <p><%= link_to 'Previous', :page => @page.pred if @page > 1 %>

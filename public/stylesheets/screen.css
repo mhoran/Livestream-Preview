@@ -1,28 +1,26 @@
 #container {
   margin: 16px;
-  width: 992px;
 }
 
 h1 {
   font-size: 48px;
 }
 
-ul {
-  font-size: 16px;
-  line-height: 28px;
-  margin: 16px 0 0 0;
-  text-align: left;
-}
-
-ul li {
+div.channel {
   float: left;
   margin: 0 8px 8px 0;
   width: 240px;
+  height: 180px;
 }
 
-ul li .thumbnail {
-  width:240px;
-  height:180px:
+.channel img {
+  width: 100px;
+  height: 100px;
+}
+
+.channel img.thumbnail {
+  width: 240px;
+  height: 180px:
 }
 
 hr {
